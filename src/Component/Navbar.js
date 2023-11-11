@@ -31,15 +31,15 @@ export default class Navbar extends Component {
                   Select Category
                 </a>
                 <ul class="dropdown-menu">
-                  
-                  
+
+
                   <li className="dropdown-item">Business</li>
-                            <li className="dropdown-item">Entertainment</li>
-                            <li className="dropdown-item">eneral</li>
-                            <li className="dropdown-item">Health</li>
-                            <li className="dropdown-item">Science</li>
-                            <li className="dropdown-item">Sports</li>
-                            <li className="dropdown-item">Technology</li>
+                  <li className="dropdown-item">Entertainment</li>
+                  <li className="dropdown-item">eneral</li>
+                  <li className="dropdown-item">Health</li>
+                  <li className="dropdown-item">Science</li>
+                  <li className="dropdown-item">Sports</li>
+                  <li className="dropdown-item">Technology</li>
                 </ul>
               </li>
             </ul>
