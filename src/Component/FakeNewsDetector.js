@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Fake_news = () => {
+export const FakeNewsDetector = () => {
     return (
         <div style={{height:"100vh"}}>
             <h1 className='text-center pt-3'>Fake news detector</h1>
@@ -11,7 +11,7 @@ export const Fake_news = () => {
             }}>
                 <form action="" >
                     <div className='mt-3'>
-                        <label htmlFor="news" className='' style={{fontSize:"20px", fontWeight:"600"}}>Enter URL of the News:</label>
+                        <label htmlFor="news" className='' style={{fontSize:"20px", fontWeight:"600"}}>Enter the News Here:</label>
                     </div>
                     <textarea name="news" id="" cols="70" rows="10" style={{margin:"auto",resize:"none"}}></textarea>
                     <div>

@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router,
   Routes, Route
 } from "react-router-dom"
-import { Fake_news } from './Component/Fake_news';
+import { FakeNewsDetector } from './Component/FakeNewsDetector';
 
 export default class App extends Component {
 
@@ -38,7 +38,7 @@ export default class App extends Component {
           <Routes>
             {/* <Route path='/' element={<News pageSize={8} country="in" category="science" /> } /> */}
             <Route exact  path="/"element={<News  pageSize={8} country="in" category="general" />}/>
-            <Route exact path='/Fake-News-Detector' element={<Fake_news/>} />
+            <Route exact path='/Fake-News-Detector' element={<FakeNewsDetector/>} />
             <Route exact path="/business"element={<News pageSize={8} country="in" category="business" />}/>
             <Route exact path="/entertainment"element={<News  pageSize={8} country="in" category="entertainment" />} />
             <Route exact path="/general"element={<News pageSize={8} country="in" category="general" />}/>
