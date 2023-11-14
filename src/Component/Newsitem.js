@@ -15,7 +15,7 @@ export class Newsitem extends Component {
 
                             <a rel="noreferrer" href={NeusUrl} target="_blank" className="btn btn-sm btn-primary">ReadMore</a>
                             
-                            <p className="card-text"><small>by {author} on {date}</small></p>
+                            <p className="card-text"><small>by {author?author.slice(0,14):"Unknown"} on {(new Date(date).toGMTString()).slice(0,22)}</small></p>
                         </div>
                     </div>
                 </div>
