@@ -27,7 +27,7 @@ export class News extends Component {
     }
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=f75274209030493e9f5f41797c9f9776&page=1&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=69648d2b428043c0867e28168a4f2d84&page=1&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -41,7 +41,7 @@ export class News extends Component {
 
     handlePrevClick = async () => {
         console.log("Previous");
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=f75274209030493e9f5f41797c9f9776&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=69648d2b428043c0867e28168a4f2d84&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -57,7 +57,7 @@ export class News extends Component {
     handleNextClick = async () => {
         console.log("Next");
         if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=f75274209030493e9f5f41797c9f9776&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=69648d2b428043c0867e28168a4f2d84&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             this.setState({ loading: true });
             let data = await fetch(url);
             let parsedData = await data.json()
@@ -71,15 +71,16 @@ export class News extends Component {
 
     render() {
         return (
-            <div className="container my-3">
-                <h1 className="text-center" style={{ margin: '35px 0px' }}>NewsMonkey - Top Headlines</h1>
+            <div className="">
+                <h1 className="text-center " style={{ margin: '35px 0px',fontSize:"50px" ,fontWeight:"700"}}>Top Headlines</h1>
                 {this.state.loading && <Spinner />}
-                <div className="row">
+                <div className="newsbox mx-3">
                     {!this.state.loading && this.state.articles.map((element) => {
-                        return <div className="col-md-3" key={element.url}>
-                            <Newsitem title={element.title ? element.title : ""} description={element.description ? element.description : "We apologize for any inconvenience caused. Please click on Read More to obtain further information.  "} ImgUrl={element.urlToImage ? element.urlToImage : "https://i.ibb.co/fQvbsFT/signature-blk.png"} NeusUrl={element.url} />
-                            {/* <Newsitem title={element.title?element.title:""} description={element.description?element.description:""} imageUrl={element.urlToImage} newsUrl={element.url}/> */}
-                        </div>
+                        return (
+                            <div className=" my-2" key={element.url}>
+                                <Newsitem title={element.title ? element.title : ""} description={element.description ? element.description : "We apologize for any inconvenience caused. Please click on Read More to obtain further information.  "} ImgUrl={element.urlToImage ? element.urlToImage : "https://i.ibb.co/fQvbsFT/signature-blk.png"} author={element.author} date={element.publishedAt} NeusUrl={element.url} />
+                                {/* <Newsitem title={element.title?element.title:""} description={element.description?element.description:""} imageUrl={element.urlToImage} newsUrl={element.url}/> */}
+                            </div>)
                     })}
                 </div>
                 <div className="container d-flex justify-content-between">

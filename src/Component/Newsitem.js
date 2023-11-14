@@ -2,15 +2,21 @@ import React, { Component } from 'react'
 
 export class Newsitem extends Component {
     render() {
-        let { title, description,ImgUrl, NeusUrl } = this.props;
+        let { title, description,ImgUrl, NeusUrl,author, date } = this.props;
         return (
             <div>
                 <div className="card mx- my-2" >
-                    <img src={ImgUrl} className="card-img-top" alt="..." />
+                    <img src={ImgUrl} className="card-img-top" alt="..." style={{height:"250px"}} />
                     <div className="card-body">
-                        <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{description}</p>
-                        <a rel="noreferrer" href={NeusUrl} target="_blank" className="btn btn-sm btn-primary">ReadMore</a>
+                        <h5 className="card-title">{title.slice(0,70)}...</h5>
+                        <p className="card-text">{description.slice(0,100)}</p>
+                        {/* <p className="card-text"><small>by {author} on {date}</small></p> */}
+                        <div className='d-flex justify-content-between'>
+
+                            <a rel="noreferrer" href={NeusUrl} target="_blank" className="btn btn-sm btn-primary">ReadMore</a>
+                            
+                            <p className="card-text"><small>by {author} on {date}</small></p>
+                        </div>
                     </div>
                 </div>
 {/* 
