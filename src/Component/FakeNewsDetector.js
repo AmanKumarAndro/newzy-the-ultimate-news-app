@@ -2,18 +2,19 @@ import React from 'react'
 
 export const FakeNewsDetector = () => {
     return (
-        <div style={{height:"100vh"}}>
+        <div className="container">
+            
             <h1 className='text-center pt-3'>Fake news detector</h1>
             <p className='text-center my-0 '>check whether news is real or fake.
-             </p>
+            </p>
             <div className='mx-auto' style={{
-                width:"600px"
+                width: "600px"
             }}>
                 <form action="" >
                     <div className='mt-3'>
-                        <label htmlFor="news" className='' style={{fontSize:"20px", fontWeight:"600"}}>Enter the News Here:</label>
+                        <label htmlFor="news" className='' style={{ fontSize: "20px", fontWeight: "600" }}>Enter the News Here:</label>
                     </div>
-                    <textarea name="news" id="" cols="70" rows="10" style={{margin:"auto",resize:"none"}}></textarea>
+                    <textarea name="news" id="" cols="70" rows="10" style={{ margin: "auto", resize: "none" }}></textarea>
                     <div>
                         <button className='btn btn-outline-success' >Check</button>
                     </div>
