@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Newsitem from './Newsitem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 export class News extends Component {
@@ -24,7 +25,8 @@ export class News extends Component {
         this.state = {
             articles: [],
             loading: false,
-            page: 1
+            page: 1,
+            totalResults: 0
         }
     }
 
@@ -70,14 +72,29 @@ export class News extends Component {
             })
         }
     }
+    fetchMoreData = async () => {  
+        this.setState({page: this.state.page + 1})
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=69648d2b428043c0867e28168a4f2d84&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        let data = await fetch(url);
+        let parsedData = await data.json()
+        this.setState({
+            articles: this.state.articles.concat(parsedData.articles),
+            totalResults: parsedData.totalResults
+        })
+      };
 
     render() {
         return (
             <div className="">
                 <h1 className="text-center text-light " style={{ margin: '35px 0px',fontSize:"50px" ,fontWeight:"700"}}>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                 {this.state.loading && <Spinner />}
-                <div className="newsbox mx-3">
-                    {!this.state.loading && this.state.articles.map((element) => {
+                <InfiniteScroll
+                    dataLength={this.state.articles.length}
+                    next={this.fetchMoreData}
+                    hasMore={this.state.articles.length !== this.state.totalResults}
+                    loader={<Spinner/>}>
+                    <div className="newsbox mx-3">
+                    {this.state.articles.map((element) => {
                         return (
                             <div className=" my-2" key={element.url}>
                                 <Newsitem title={element.title ? element.title : ""} description={element.description ? element.description : "We apologize for any inconvenience caused. Please click on Read More to obtain further information.  "} ImgUrl={element.urlToImage ? element.urlToImage : "https://i.ibb.co/fQvbsFT/signature-blk.png"} author={element.author} date={element.publishedAt} NeusUrl={element.url} />
@@ -85,10 +102,12 @@ export class News extends Component {
                             </div>)
                     })}
                 </div>
-                <div className="container d-flex justify-content-between">
-                    <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
-                    <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div>
+                </InfiniteScroll>
+
+                {/* <div className="container d-flex justify-content-between">
+                 <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
+                   <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+                 </div> */}
             </div>
         )
     }
