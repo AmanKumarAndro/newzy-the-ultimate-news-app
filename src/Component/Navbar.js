@@ -6,8 +6,8 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg bg-dark bg-body-dark
-       py-3 "style={{ color: "white" }}>
+      <nav className="navbar fixed-top navbar-expand-lg bg-dark bg-body-dark
+        "style={{ color: "white",padding:"20px" }}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/" style={{color:"white"}}>Newzy</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style={{color:"white", background:"white"}}>
@@ -20,7 +20,7 @@ export default class Navbar extends Component {
                 <a className="nav-link" aria-current="page" href="/"style={{color:"white"}}>Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="-"style={{color:"white"}}>About</a>
+                <a className="nav-link" href="/about"style={{color:"white"}}>About</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link Active" href="/Fake-News-Detector"style={{color:"lime"}} >

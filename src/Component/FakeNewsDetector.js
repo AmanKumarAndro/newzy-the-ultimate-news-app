@@ -5,6 +5,11 @@ export const FakeNewsDetector = () => {
     const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [prediction, setPrediction] = useState('');
+  const handleClearClick = () => { 
+    setTitle("");
+    setText("");
+    setPrediction('')
+}
 
   const handleSubmit = async () => {
     try {
@@ -23,7 +28,7 @@ export const FakeNewsDetector = () => {
     }
   };
     return (
-        <div className="container mt-5"style={{width:"100%"}}>
+        <div className="container fkenewsbox"style={{width:"100%",paddingTop:'150px',}}>
           <div className="card">
             <div className="card-header">
               <h1 className="text-center">Fake News Detector</h1>
@@ -39,11 +44,11 @@ export const FakeNewsDetector = () => {
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
-                <p className="mt-3"><label htmlFor="text text-primary"><h3>Or</h3></label></p>
+                <p className="mt-2 text-center"><label htmlFor="text text-primary"><h3>Or</h3></label></p>
               <div className="form-group">
                 <label htmlFor="text"><h2>Text:</h2></label>
                 <textarea
-                  className="form-control"
+                  className="form-control my-3"
                   id="text"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
@@ -55,8 +60,10 @@ export const FakeNewsDetector = () => {
               {prediction && (
                 <p className="mt-3">
                   <strong>Prediction:</strong> {prediction}
-                </p>
-              )}
+              </p>
+              
+            )}
+            <button className="btn btn-primary mx-3" onClick={handleClearClick} > Clear</button>
             </div>
           </div>
         </div>
