@@ -35,7 +35,7 @@ export const FakeNewsDetector = () => {
             </div>
             <div className="card-body">
               <div className="form-group">
-                <label htmlFor="title "><h2>Title:</h2></label>
+                <label htmlFor="title "><h2> News Title:</h2></label>
                 <input
                   type="text"
                   className="form-control"
@@ -46,7 +46,7 @@ export const FakeNewsDetector = () => {
               </div>
                 <p className="mt-2 text-center"><label htmlFor="text text-primary"><h3>Or</h3></label></p>
               <div className="form-group">
-                <label htmlFor="text"><h2>Text:</h2></label>
+                <label htmlFor="text"><h2>News Content:</h2></label>
                 <textarea
                   className="form-control my-3"
                   id="text"
