@@ -97,7 +97,7 @@ export class News extends Component {
                     {this.state.articles.map((element) => {
                         return (
                             <div className=" my-2" key={element.url}>
-                                <Newsitem title={element.title ? element.title : ""} description={element.description ? element.description : "We apologize for any inconvenience caused. Please click on Read More to obtain further information.  "} ImgUrl={element.urlToImage ? element.urlToImage : "https://i.ibb.co/fQvbsFT/signature-blk.png"} author={element.author} date={element.publishedAt} NeusUrl={element.url} />
+                                <Newsitem title={element.title ? element.title : ""} description={element.description ? element.description : "We apologize for any inconvenience caused. Please click on Read More to obtain further information.  "} ImgUrl={element.urlToImage ? element.urlToImage : "https://i.ibb.co/nfMKP2s/Text-News-App.png"} author={element.author} date={element.publishedAt} NeusUrl={element.url} />
                                 {/* <Newsitem title={element.title?element.title:""} description={element.description?element.description:""} imageUrl={element.urlToImage} newsUrl={element.url}/> */}
                             </div>)
                     })}

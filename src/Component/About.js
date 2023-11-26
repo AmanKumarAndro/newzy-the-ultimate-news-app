@@ -29,7 +29,7 @@ export const About = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="fs-5 m-0">We deliver services beyond expectations.</p>
+                      <p className="fs-5 m-0">We aim to combat misinformation.</p>
                     </div>
                   </div>
                   <div className="d-flex align-items-center mb-4 mb-xl-5">
